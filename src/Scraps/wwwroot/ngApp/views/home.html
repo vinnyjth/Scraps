@@ -1,0 +1,15 @@
+<ul>
+    <li ng-repeat="product in controller.products">
+        Product Name: {{product.name}} <br />
+        Type:{{product.type}}<br />
+        Cateogry:{{product.category.name}} <br />
+        Quantity:{{product.quantity}} <br />
+        Price:{{product.price}}<br />
+        SKU:{{product.sku}}<br />
+        Lot Number:{{product.lotNumber}}<br />
+        Production Cost:{{product.productionCost}}<br />
+        <a ui-sref="Edit({id: product.id})">Edit</a>
+        <a ui-sref="Delete({id: product.id})">Delete</a>
+    </li>
+</ul>
+<a ui-sref="Add">Add Product</a>

@@ -1,0 +1,38 @@
+﻿<form ng-submit="controller.editProduct()">
+    <div>
+        <label>Name:</label>
+        <input class="form-control" type="text" placeholder="Prodcut Name" ng-model="controller.productToEdit.name" />
+    </div>
+    <div>
+        <label>Type:</label>
+        <input class="form-control" type="text" placeholder="Product Type" ng-model="controller.productToEdit.type" />
+    </div>
+    <div>
+        <label>Category:</label>
+        <select class="form-control" ng-model="controller.productToEdit.categoryId">
+            <option value="{{category.id}}" ng-repeat="category in controller.categories">{{category.name}}</option>
+        </select>
+    </div>
+    <div>
+        <label>Quantity:</label>
+        <input class="form-control" type="number" placeholder="Product Quantity" ng-model="controller.productToEdit.quantity" />
+    </div>
+    <div>
+        <label>Price:</label>
+        <input class="form-control" type="number" placeholder="Product Price" ng-model="controller.productToEdit.price" />
+    </div>
+    <div>
+        <label>SKU:</label>
+        <input class="form-control" type="number" placeholder="Product SKU" ng-model="controller.productToEdit.sku" />
+    </div>
+    <div>
+        <label>Lot Number:</label>
+        <input class="form-control" type="number" placeholder="Product Lot Number" ng-model="controller.productToEdit.lotNumber" />
+    </div>
+    <div>
+        <label>Production Cost:</label>
+        <input class="form-control" type="number" placeholder="Production Cost" ng-model="controller.productToEdit.productionCost" />
+    </div>
+    <br />
+    <input class="btn" type="submit" value="Save" />
+</form>
