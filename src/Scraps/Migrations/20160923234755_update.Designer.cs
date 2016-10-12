@@ -8,9 +8,10 @@ using Scraps.Data;
 namespace Scraps.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20160923234755_update")]
+    partial class update
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.0.0-rtm-21431")
@@ -202,8 +203,6 @@ namespace Scraps.Migrations
                     b.Property<int>("Quantity");
 
                     b.Property<int>("Sku");
-
-                    b.Property<int>("TotalOnHand");
 
                     b.Property<decimal>("TotalProfit");
 

@@ -16,7 +16,7 @@ namespace Scraps.API
         private ApplicationDbContext _db;
         public ProductsController(ApplicationDbContext db)
         {
-            this._db = db;
+            _db = db;
         }
 
 
@@ -24,7 +24,18 @@ namespace Scraps.API
         [HttpGet]
         public IEnumerable<Product> Get()
         {
-            var products = _db.Products.Include(p => p.Category).ToList();
+            var products = _db.Products.Select(p => new Product
+            {
+                Id = p.Id,
+                Name = p.Name,
+                Type = p.Type,
+                Category = new Category { Id = p.Category.Id, Name = p.Category.Name },
+                Quantity = p.Quantity,
+                Price = p.Price,
+                Sku = p.Sku,
+                LotNumber = p.LotNumber,
+                ProductionCost = p.ProductionCost
+            }).ToList();
             return products;
         }
 
@@ -34,7 +45,7 @@ namespace Scraps.API
         {
             var product = _db.Products.FirstOrDefault(p => p.Id == id);
 
-            if(product == null)
+            if (product == null)
             {
                 return NotFound();
             }
@@ -52,7 +63,7 @@ namespace Scraps.API
             {
                 return BadRequest(this.ModelState);
             }
-            if(product.Id == 0)
+            if (product.Id == 0)
             {
                 _db.Products.Add(product);
                 _db.SaveChanges();
@@ -84,7 +95,7 @@ namespace Scraps.API
         public IActionResult Delete(int id)
         {
             var product = _db.Products.FirstOrDefault(p => p.Id == id);
-            if(product == null)
+            if (product == null)
             {
                 return NotFound();
             }
@@ -92,5 +103,28 @@ namespace Scraps.API
             _db.SaveChanges();
             return Ok();
         }
+
+        [HttpGet("calculateProfit")]
+        public IEnumerable<Product> CalculateProfit()
+        {
+            var products = _db.Products.ToList();
+            foreach (var p in products)
+            {
+                p.TotalProfit = p.CalculateProfit();
+            }
+            return products;
+        }
+
+        [HttpGet("calculateOnHand")]
+        public IEnumerable<Product> CalculateOnHand()
+        {
+            var products = _db.Products.ToList();
+            foreach (var p in products)
+            {
+                p.TotalOnHand = p.CalculateOnHand();
+            }
+            return products;
+        }
     }
 }
+

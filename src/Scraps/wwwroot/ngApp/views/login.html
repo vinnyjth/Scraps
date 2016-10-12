@@ -1,5 +1,5 @@
 <fieldset>
-    <legend>Login with a Social Provider</legend>
+    <legend>Log In</legend>
 
     <ul>
         <li ng-repeat="externalLogin in account.externalLogins">
@@ -18,7 +18,7 @@
     </ul>
 
     <form ng-submit="controller.login()">
-        <div>
+        <div id="login">
             <label>Email:</label>
             <input class="form-control" ng-model="controller.loginUser.email" />
         </div>
@@ -28,6 +28,9 @@
         </div>
         <br />
         <input class="btn" type="submit" value="Login" />
-        <a href="/register">Register</a>
+        <br/>
+        <br/>
+        Not a member yet?
+        <a href="/register">Join Us!</a>
     </form>
 </fieldset>

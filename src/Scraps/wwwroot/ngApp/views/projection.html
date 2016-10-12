@@ -1,0 +1,21 @@
+﻿<h2 id="header">Expected Profit</h2>
+<div id="list2">
+    <ol>
+        <li ng-repeat="product in controller.projections">
+            <p>
+                {{product.name}}: {{product.totalProfit|currency}}
+            </p>
+        </li>
+    </ol>
+</div>
+<hr />
+<h2 id="header">Production Pipeline</h2>
+<div id="list2">
+    <ol>
+        <li ng-repeat="product in controller.onhandCalculations">
+            <p>
+                {{product.name}}: {{product.totalOnHand}}
+            </p>
+        </li>
+    </ol>
+</div>

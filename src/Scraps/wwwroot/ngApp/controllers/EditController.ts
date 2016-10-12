@@ -6,7 +6,7 @@
 
         editProduct() {
             this.productService.save(this.productToEdit).then(
-                () => this.$state.go('Home')
+                () => this.$state.go('home')
             );
         }
         constructor(private productService: Scraps.Services.ProductService, private $state: ng.ui.IStateService, $stateParams: ng.ui.IStateParamsService) {

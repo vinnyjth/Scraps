@@ -7,15 +7,14 @@
         addProduct() {
             this.productService.save(this.productToCreate).then
                 (
-                () => this.$state.go('Home')
+                () => this.$state.go('home')
                 );
         }
         constructor(
             private productService: Scraps.Services.ProductService,
             private $state: ng.ui.IStateService,
-            private categoryService: Scraps.Services.CategoryService)
-        {
-            this.categories = this.categoryService.listCategories();    
+            private categoryService: Scraps.Services.CategoryService) {
+            this.categories = this.categoryService.listCategories();
         }
     }
 }

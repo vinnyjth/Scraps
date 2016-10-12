@@ -5,7 +5,7 @@
 
         deleteProduct() {
             this.productService.deleteProduct(this.productToDelete.id).then(
-                () => this.$state.go('Home')
+                () => this.$state.go('home')
             );
         }
         constructor(private productService: Scraps.Services.ProductService, private $state: ng.ui.IStateService, $stateParams: ng.ui.IStateParamsService) {

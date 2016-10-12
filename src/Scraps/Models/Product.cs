@@ -18,8 +18,22 @@ namespace Scraps.Models
         public decimal ProductionCost { get; set; }
         public decimal CalculateProfit()
         {
-            return this.Price - this.ProductionCost;
+            return (this.Price - this.ProductionCost) * this.Quantity;
         }
+        public decimal TotalProfit { get; set; }
+        public int CalculateOnHand()
+        {
+            if (this.Quantity < 60)
+            {
+                return 60 - this.Quantity;
+            }
+            else
+            {
+                return 0;
+            }
+        }
+        public int TotalOnHand { get; set; }
+
         public int CategoryId { get; set; }
         [ForeignKey("CategoryId")]
         public Category Category { get; set; }

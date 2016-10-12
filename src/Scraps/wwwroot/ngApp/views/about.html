@@ -1,4 +1,11 @@
-<h2>About</h2>
-<p>
-    {{controller.message}}
-</p>
+<h2 id="header">Catalog</h2>
+<div id="list2">
+        <ol>
+            <li ng-repeat="product in controller.products">
+                <p>
+                    Product Name: {{product.name}} <br />
+                    Price:{{product.price|currency}}<br />
+                </p>
+            </li>
+        </ol>
+    </div>

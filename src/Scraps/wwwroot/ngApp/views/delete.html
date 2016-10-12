@@ -1,4 +1,5 @@
-﻿<h2> Are you sure you want to delete the product: {{controller.productToDelete.name}}</h2>
-<div>
+﻿<h2 id="deleteQuestion">Are you sure you want to delete the product: {{controller.productToDelete.name}}?</h2>
+
+<div id="deleteBtn">
     <button class="btn" ng-click="controller.deleteProduct()">OK</button>
 </div>

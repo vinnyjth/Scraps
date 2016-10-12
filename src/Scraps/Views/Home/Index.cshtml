@@ -8,19 +8,22 @@
 </head>
 <body ng-controller="AccountController as account">
     <div class="container">
-        <h1>Scraps</h1>
-        <div>
-          <a href="/">Home</a> /
-           <a href="/about">About</a>
-
-           / <a href="/secret">Secret</a> /
-           <a href="/login" ng-show="!account.isLoggedIn()">Login</a>
-           <a href="#" ng-click="account.logout()" ng-show="account.isLoggedIn()">Logout</a>
-           <div ng-show="account.isLoggedIn()">
-               [{{account.getUserName()}}]
-           </div> 
+        <h1 id="something">Scraps & Sundries</h1>
+        <div id="list1">
+            <ul>
+                <li><a href="/about">Catalog</a></li>
+                <li><a href="/">Inventory</a></li>
+                <li><a href="/projection">Projections</a></li>
+                @*/ <a href="/secret">Secret</a>*@
+                <li><a href="/login" ng-show="!account.isLoggedIn()">Login</a></li>
+                <li><a href="#" ng-click="account.logout()" ng-show="account.isLoggedIn()">Logout</a></li>
+                <li>
+                    <div ng-show="account.isLoggedIn()">
+                        [{{account.getUserName()}}]
+                    </div>
+                </li>
+            </ul>
         </div>
-        <hr />
 
         <ui-view></ui-view>
     </div>
@@ -38,10 +41,12 @@
     <script src="~/ngapp/controllers/controllers.js"></script>
     <script src="~/ngapp/services/services.js"></script>
     <script src="~/ngApp/services/cateogryService.js"></script>
-    <script src="~/ngApp/controllers/AddController.js"></script>
-    <script src="~/ngApp/controllers/DeleteController.js"></script>
-    <script src="~/ngApp/controllers/EditController.js"></script>
-    <script src="~/ngApp/controllers/HomeController.js"></script>
+    <script src="~/ngApp/controllers/addController.js"></script>
+    <script src="~/ngApp/controllers/deleteController.js"></script>
+    <script src="~/ngApp/controllers/editController.js"></script>
+    <script src="~/ngApp/controllers/homeController.js"></script>
+    <script src="~/ngApp/controllers/projectionController.js"></script>
+    <script src="~/ngApp/controllers/aboutController.js"></script>
     <!-- Security -->
     <script src="~/ngapp/controllers/accountcontroller.js"></script>
     <script src="~/ngapp/services/accountservice.js"></script>

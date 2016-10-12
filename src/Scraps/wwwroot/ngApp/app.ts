@@ -44,13 +44,13 @@ namespace Scraps {
                 controllerAs: 'controller'
             }) 
             .state('Edit', {
-                url: '/edit',
+                url: '/edit/:id',
                 templateUrl: '/ngApp/views/edit.html',
                 controller: Scraps.Controllers.ProductsEditController,
                 controllerAs: 'controller'
             }) 
             .state('Delete', {
-                url: '/delete',
+                url: '/delete/:id',
                 templateUrl: '/ngApp/views/delete.html',
                 controller: Scraps.Controllers.ProductsDeleteController,
                 controllerAs: 'controller'
@@ -59,6 +59,12 @@ namespace Scraps {
                 url: '/about',
                 templateUrl: '/ngApp/views/about.html',
                 controller: Scraps.Controllers.AboutController,
+                controllerAs: 'controller'
+            })
+            .state('projection', {
+                url: '/projection',
+                templateUrl: '/ngApp/views/projection.html',
+                controller: Scraps.Controllers.ProjectionController,
                 controllerAs: 'controller'
             })
             .state('notFound', {
